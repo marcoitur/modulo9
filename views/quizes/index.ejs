@@ -22,13 +22,14 @@
 </table>
 
 <table>
-<% var i; for (i=0; i < quizes.length; i++) { %>        
+<% var i; for (i=0; i < quizes.length; i++) { %>
 <tr><td>
 	<a href="quizes/<%= quizes[i].id %>"><%= quizes[i].tema %></a>
     </td>
     <td>
 	<a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
     </td>
+<%if(session.user){%>
     <td>
 	<a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></a>
     </td>
@@ -38,7 +39,9 @@
             borrar
           </button>
         </form>
-    </td></tr> 
+    </td>
+<%}%>
+    </tr>
   <% } %>
 
 </table>
@@ -48,4 +51,6 @@
     <input type="submit" value="Enviar" />
 </form>
 -->
-<a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+<%if(session.user){%>
+    <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+<%}%>
