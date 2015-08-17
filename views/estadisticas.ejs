@@ -1,0 +1,23 @@
+<h1> Estadísticas </h1>
+ <br>
+<table>
+<tr>
+    <td> Número de preguntas:</td><td><%= statistics.quizes %> </td>
+</tr><tr>
+    <td> Número de comentarios:</td><td> <%= statistics.comments %> </td>
+</tr><tr>
+    <td> Comentarios por pregunta:</td><td><%= statistics.comments?(statistics.comments / statistics.quizes).toFixed(2):0 %>
+    </td>
+</tr><tr>
+    <td> Preguntas sin comentarios:</td><td><%= statistics.quizes - statistics.commentedQuizes %>
+    </td>
+</tr><tr>
+    <td> Preguntas con comentarios:</td><td> <%= statistics.commentedQuizes %>
+    </td>
+</tr><tr>
+</tr><tr>
+    <td> Comentarios no publicados:</td><td> <%= statistics.commentsUnpublished %>
+      (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments).toFixed(2)+'%':'100%' %>)
+    </td>
+</tr>
+</table>
